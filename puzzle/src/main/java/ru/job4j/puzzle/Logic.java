@@ -39,12 +39,12 @@ public class Logic {
         return rst;
     }
 
-    public boolean isFree(Cell ... cells) {
+    public boolean isFree(Cell... cells) {
         boolean result = cells.length > 0;
         for (Cell cell : cells) {
             if (this.findBy(cell) != -1) {
-               result = false;
-               break;
+                result = false;
+                break;
             }
         }
         return result;
@@ -68,9 +68,39 @@ public class Logic {
         return rst;
     }
 
+    public boolean monoHorizontal(int[][] table, int row) {
+        boolean result = true;
+        for (int i = 0; i < table[row].length; i++) {
+            if (table[row][i] != 1) {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
+    public boolean monoVertical(int[][] table, int column) {
+        boolean result = true;
+        for (int j = 0; j < table.length; j++) {
+            if (table[j][column] != 1) {
+                result = false;
+                break;
+            }
+        }
+        return result;
+    }
+
     public boolean isWin() {
         int[][] table = this.convert();
         boolean result = false;
+        for (int i = 0; i < table.length; i++) {
+            if (table[i][i] == 1) {
+                if (monoHorizontal(table, i) || monoVertical(table, i)) {
+                    result = true;
+                    break;
+                }
+            }
+        }
         return result;
     }
 

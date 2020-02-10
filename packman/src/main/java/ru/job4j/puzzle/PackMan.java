@@ -75,7 +75,8 @@ public class PackMan extends Application {
                                 deltaY = 0;
                             }
                         }
-                        if (rect.getX() + deltaX * 50 > 0 && rect.getX() + 50 + deltaX * 50 < 250 &&
+                        if (rect.getX() + deltaX * 50 > 0 && rect.getX() + 50 + deltaX * 50 < 250
+                                &&
                                 rect.getY() + deltaY * 50 > 0 && rect.getY() + 50 + deltaY * 50 < 250) {
                             if (deltaX != 0) {
                                 rect.setLayoutX(rect.getLayoutX() + deltaX);
